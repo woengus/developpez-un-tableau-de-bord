@@ -1,0 +1,26 @@
+.nav {
+    background-color: #020203;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-width: 1024px;
+    max-width: 1440px;
+    height: 91px;
+    display: flex;
+    margin: 0 auto;
+    color:#FFFFFF;
+}
+.nav-item-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    list-style-type: none;
+    margin-right: 1rem;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+}
+.logo {
+    img {
+        height: 91px;
+    }
+}
