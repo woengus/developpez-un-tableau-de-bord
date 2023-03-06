@@ -1,0 +1,82 @@
+.salutation-name {
+position: absolute;
+left: 15%;
+top: 13%;
+font-weight: 500;
+font-size: 48px;
+color:#000000;
+}
+
+.name {
+    color:#FF0101;
+    margin-left:1rem;
+    position: absolute;
+    left: 29%;
+    top: 16.5%;
+    font-weight: 500;
+font-size: 48px;
+}
+.congratulations {
+    font-weight: 400;
+    font-size: 18px;
+    position: absolute;
+    left: 15%;
+    top: 21%;
+}
+.content-flex {
+    display: flex;
+    flex-direction: row;
+    margin-left:10rem;
+    margin-top:12rem;
+    justify-content: space-around;
+    
+}
+.calories-proteines-glucides-lipides { 
+    display: flex;
+    flex-direction: column;
+}
+.calories, .proteines, .glucides, .lipides {
+    height: 124px;
+    width: 258px;
+    border:#FF0101 1px solid;
+    margin-bottom: 39px;
+    margin-right: 6rem;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    @media screen and (max-width: 1440px) {
+        height: 93px;
+        width: 194px;
+    }
+}
+.poids-ojectif-radar-kpi {
+    display: flex;
+    flex-direction: column;
+}
+.poids {
+    min-width: 800px;
+    height: 320px;
+    border:#0105ff 1px solid;
+    @media screen and (max-width: 1440px) {
+        min-width: 500px;
+        height: 240px;
+    }
+}
+.objectif, .radar, .kpi {
+    width: 32%;
+    height: 263px;
+    border:#19a178 1px solid;
+    @media screen and (max-width: 1440px) {
+       height: 180px;
+    }
+}
+.obj-rad-pki-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.icon-calories {
+    height: 80px;
+    width: 80px;
+}
