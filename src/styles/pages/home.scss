@@ -38,14 +38,12 @@ font-size: 48px;
 .calories, .proteines, .glucides, .lipides {
     height: 124px;
     width: 258px;
-    border:#FF0101 1px solid;
     margin-bottom: 39px;
     margin-right: 6rem;
-    background: #FBFBFB;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     border-radius: 5px;
     @media screen and (max-width: 1440px) {
-        height: 93px;
+        height: 80px;
         width: 194px;
     }
 }
@@ -76,7 +74,27 @@ font-size: 48px;
     justify-content: space-between;
     margin-top: 2rem;
 }
-.icon-calories {
+.icon-calories, .icon-proteines, .icon-glucides, .icon-lipides {
     height: 80px;
     width: 80px;
+}
+.calories-name, .proteines-name, .glucides-name, .lipides-name {
+    font-weight: 500;
+    font-size:14px;
+    color:#74798C;
+}
+.weight {
+    font-weight: 700;
+    font-size:20px;
+    color:#282D30;
+}
+.name-weight-flex {
+    display: flex;
+    flex-direction: column;
+    padding-left:1rem;
+    padding-top:1rem;
+}
+.calories, .proteines, .glucides, .lipides {
+    display: flex;
+    flex-direction:row;
 }
