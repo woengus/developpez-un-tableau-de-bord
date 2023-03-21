@@ -5,9 +5,12 @@ import Proteines from "../assets/prot-icon.png";
 import Glucides from "../assets/glucides-icon.png";
 import Lipides from "../assets/lipides-icon.png";
 import Score from "../components/Score";
+import Counter from "../components/Counter";
+import LineChart from "../components/LineChart";
 
 const Home = () => {
   const [data, setData] = useState(null);
+  const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,8 +19,15 @@ const Home = () => {
       setData(result.data.data);
       console.log(result.data.data);
     };
-
+    const fetchSession = async () => {
+      const result = await axios(
+        `http://localhost:3000/user/12/average-sessions`
+      );
+      console.log(result.data.data.sessions);
+      setSessions(result.data.data.sessions);
+    };
     fetchData();
+    fetchSession();
   }, []);
 
   return data ? (
@@ -34,64 +44,65 @@ const Home = () => {
       <main className="main-content">
         <div className="content-flex">
           <div className="poids-ojectif-radar-kpi">
-            <div className="poids">activité quotidienne</div>
+            <div>
+              <ul className="poids">
+                <li className="poids-activité">Activité quotidienne</li>
+                <li className="poids-poids">
+                  <span>Poids (kg)</span>
+                </li>
+                <li className="poids-calories">
+                  <span>Calories brûlées (kCal)</span>
+                </li>
+              </ul>
+            </div>
             <div className="obj-rad-pki-flex">
-              <div className="objectif">objectif</div>
-              <div className="radar">radar</div>
+              <div className="objectif">
+                <h3>Durée moyenne des sessions</h3>
+                <LineChart sessions={sessions} />
+              </div>
+              <div className="radar">
+                <ul className="radar-ul-style">
+                  <li>Intensité</li>
+                  <li>Cardio</li>
+                  <li>Energie</li>
+                  <li>Endurance</li>
+                  <li>Force</li>
+                  <li>Vitesse</li>
+                </ul>
+              </div>
               <Score className="score" score={data.todayScore} />
+              <div className="score-info">
+                <h3 className="score-title">Score</h3>
+                <p className="score-objectif">{data.todayScore * 100 + "%"}</p>
+                <span>de votre objectif</span>
+              </div>
             </div>
           </div>
           <div className="calories-proteines-glucides-lipides">
-            <div className="calories">
-              <img
-                src={Calories}
-                alt="icone des calories"
-                className="icon-calories"
-              />
-              <div className="name-weight-flex">
-                <span className="weight">
-                  {data.keyData.calorieCount + "kCal"}
-                </span>
-                <span className="calories-name">Calories</span>
-              </div>
-            </div>
-            <div className="proteines">
-              <img
-                src={Proteines}
-                alt="icone des proteines"
-                className="icon-proteines"
-              />
-              <div className="name-weight-flex">
-                <span className="weight">
-                  {data.keyData.proteinCount + "g"}
-                </span>
-                <span className="proteines-name">protéines</span>
-              </div>
-            </div>
-            <div className="glucides">
-              <img
-                src={Glucides}
-                alt="icone des glucides"
-                className="icon-glucides"
-              />
-              <div className="name-weight-flex">
-                <span className="weight">
-                  {data.keyData.carbohydrateCount + "g"}
-                </span>
-                <span className="glucides-name">Glucides</span>
-              </div>
-            </div>
-            <div className="lipides">
-              <img
-                src={Lipides}
-                alt="icone des lipides"
-                className="icon-lipides"
-              />
-              <div className="name-weight-flex">
-                <span className="weight">{data.keyData.lipidCount + "g"}</span>
-                <span className="lipides-name">Lipides</span>
-              </div>
-            </div>
+            <Counter
+              src={Calories}
+              alt="image de calories"
+              name="Calories"
+              weight={data.keyData.calorieCount + "kCal"}
+            />
+            <Counter
+              src={Proteines}
+              alt="image de protéines"
+              name="Protéines"
+              weight={data.keyData.proteinCount + "g"}
+            />
+            <Counter
+              src={Glucides}
+              alt="image de glucides"
+              name="Glucides"
+              weight={data.keyData.carbohydrateCount + "g"}
+            />
+            <Counter
+              src={Lipides}
+              alt="image de lipides"
+              name="Lipides"
+              weight={data.keyData.lipidCount + "g"}
+            />
           </div>
         </div>
       </main>

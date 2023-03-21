@@ -9,23 +9,31 @@ const Score = ({ score }) => {
   ];
   return (
     <div className="kpi">
-      <PieChart width={400} height={400}>
-        <Pie
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#E60000"
-          paddingAngle={5}
-          dataKey="value"
-          //startAngle={80}
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+      <ResponsiveContainer>
+        <PieChart width={300} height={300}>
+          <Pie
+            data={data}
+            cx={150}
+            cy={90}
+            innerRadius={70}
+            outerRadius={80}
+            fill="transparent"
+            paddingAngle={5}
+            dataKey="value"
+            stroke="transparent"
+            radius={[0, 5, 5, 0]}
+            startAngle={90}
+            cornerRadius={5} //arrondis
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
     </div>
   );
 };
