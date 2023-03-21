@@ -99,7 +99,8 @@ font-size: 48px;
     display: flex;
     flex-direction:row;
     margin-left:1rem;
-    margin-bottom: 1rem;;
+    margin-bottom: 4rem;;
+    margin-top:2rem;
     img {
         height: 80px;
         width: 80px;
@@ -189,4 +190,30 @@ font-size: 48px;
         color:#74798C;
         font-weight: 500;
     }
+}
+//style linechart
+.recharts-layer  {
+    line {
+        display: none;
+    }
+}
+.recharts-cartesian-axis-tick {
+   
+line {
+    display: none;
+}
+
+}
+g {
+    color:#FFFFFF;
+}
+
+.tooltip {
+    background-color: white;
+    padding: 10px;
+    border-radius: 3px;
+    border: none!important;
+}
+.recharts-tooltip-wrapper {
+    border: none!important;
 }

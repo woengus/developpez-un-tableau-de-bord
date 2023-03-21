@@ -1,67 +1,28 @@
 import React from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
-
-const data = [
-  {
-    name: "L",
-    uv: 4000,
-
-    amt: 2400,
-  },
-  {
-    name: "M",
-    uv: 3000,
-
-    amt: 2210,
-  },
-  {
-    name: "M",
-    uv: 2000,
-
-    amt: 2290,
-  },
-  {
-    name: "J",
-    uv: 2780,
-
-    amt: 2000,
-  },
-  {
-    name: "V",
-    uv: 1890,
-
-    amt: 2181,
-  },
-  {
-    name: "S",
-    uv: 2390,
-
-    amt: 2500,
-  },
-  {
-    name: "D",
-    uv: 3490,
-
-    amt: 2100,
-  },
-];
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts";
 
 export default function App(props) {
+  const days = {
+    1: "L",
+    2: "M",
+    3: "M",
+    4: "J",
+    5: "V",
+    6: "S",
+    7: "D",
+  };
   const sessions = props.sessions.map((session) => {
     return {
-      name: session.day,
-      sessionAverage: session.sessionLength,
+      name: days[session.day],
+      average: session.sessionLength,
     };
   });
   console.log(props.sessions);
+  const mapSession = ({ payload }) => {
+    if (payload.length) {
+      return <div className="tooltip">{payload[0].value} min</div>;
+    }
+  };
   return (
     <LineChart
       width={300}
@@ -75,15 +36,14 @@ export default function App(props) {
       }}
     >
       <CartesianGrid strokeDasharray="0 3" />
-      <XAxis dataKey="name" />
-      <Tooltip />
+      <XAxis dataKey="name" stroke="#ffffff" />
+      <Tooltip content={mapSession} />
       <Line
         type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
+        dataKey="average"
+        stroke="#ffffff"
         activeDot={{ r: 8 }}
       />
-      <Line type="monotone" dataKey="uv" stroke="#ffffff" />
     </LineChart>
   );
 }

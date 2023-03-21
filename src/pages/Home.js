@@ -17,17 +17,28 @@ const Home = () => {
       const result = await axios("http://localhost:3000/user/12");
 
       setData(result.data.data);
-      console.log(result.data.data);
     };
     const fetchSession = async () => {
       const result = await axios(
         `http://localhost:3000/user/12/average-sessions`
       );
-      console.log(result.data.data.sessions);
+
       setSessions(result.data.data.sessions);
+    };
+    const fetchActivity = async () => {
+      const result = await axios(`http://localhost:3000/user/12/activity`);
+      console.log(result.data.data.activity);
+      setSessions(result.data.data.activity);
+    };
+    const fetchPerformance = async () => {
+      const result = await axios(`http://localhost:3000/user/12/performance`);
+      console.log(result.data.data.performance);
+      setSessions(result.data.data.performance);
     };
     fetchData();
     fetchSession();
+    //fetchPerformance();
+    //fetchActivity();
   }, []);
 
   return data ? (
