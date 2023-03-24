@@ -51,6 +51,7 @@ font-size: 48px;
     display: flex;
     flex-direction: column;
 }
+
 .poids {
     min-width: 800px;
     height: 320px;
@@ -60,13 +61,11 @@ font-size: 48px;
         height: 240px;
     }
 }
+
 .objectif, .radar, .kpi {
     width: 32%;
-    height: 263px;
-    border:#19a178 1px solid;
-    @media screen and (max-width: 1440px) {
-       height: 180px;
-    }
+    height: 30vh;
+    
 }
 .obj-rad-pki-flex {
     display: flex;
@@ -108,7 +107,7 @@ font-size: 48px;
     }
 }
 .kpi{
-    width: 100%;
+    width: 30%;
     height: 260px;
 }
 .poids {
@@ -172,20 +171,20 @@ font-size: 48px;
         color:#20253A;
         position: relative;
         top:10px;
-        left:-450px;
+        left:-275px;
     }
     .score-objectif {
         font-weight: 700;
         font-size: 26px;
         position: relative;
         top:10px;
-        left:-345px;
+        left:-200px;
         color:#282D30;
     }
     span {
         position: relative;
         top:-10px;
-        left:-345px;
+        left:-200px;
         font-size: 16px;
         color:#74798C;
         font-weight: 500;
@@ -216,4 +215,7 @@ g {
 }
 .recharts-tooltip-wrapper {
     border: none!important;
+}
+.recharts-polar-grid-angle {
+    display:none;
 }

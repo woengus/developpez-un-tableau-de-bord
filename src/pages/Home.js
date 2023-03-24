@@ -7,10 +7,14 @@ import Lipides from "../assets/lipides-icon.png";
 import Score from "../components/Score";
 import Counter from "../components/Counter";
 import LineChart from "../components/LineChart";
+import SimpleRadartChart from "../components/SimpleRadartChart";
+import { BarChart } from "recharts";
 
 const Home = () => {
   const [data, setData] = useState(null);
   const [sessions, setSessions] = useState([]);
+  const [performance, setPerformance] = useState([]);
+  const [kind, setKind] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,16 +32,16 @@ const Home = () => {
     const fetchActivity = async () => {
       const result = await axios(`http://localhost:3000/user/12/activity`);
       console.log(result.data.data.activity);
-      setSessions(result.data.data.activity);
     };
     const fetchPerformance = async () => {
       const result = await axios(`http://localhost:3000/user/12/performance`);
-      console.log(result.data.data.performance);
-      setSessions(result.data.data.performance);
+
+      setPerformance(result.data.data.data);
+      setKind(result.data.data.kind);
     };
     fetchData();
     fetchSession();
-    //fetchPerformance();
+    fetchPerformance();
     //fetchActivity();
   }, []);
 
@@ -72,6 +76,7 @@ const Home = () => {
                 <LineChart sessions={sessions} />
               </div>
               <div className="radar">
+                <SimpleRadartChart performance={performance} kind={kind} />
                 <ul className="radar-ul-style">
                   <li>Intensité</li>
                   <li>Cardio</li>

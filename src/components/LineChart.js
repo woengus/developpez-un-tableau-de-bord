@@ -1,6 +1,7 @@
 import React from "react";
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts";
 
+//transform value in days of the week
 export default function App(props) {
   const days = {
     1: "L",
@@ -17,7 +18,8 @@ export default function App(props) {
       average: session.sessionLength,
     };
   });
-  console.log(props.sessions);
+
+  //tooltip
   const mapSession = ({ payload }) => {
     if (payload.length) {
       return <div className="tooltip">{payload[0].value} min</div>;
