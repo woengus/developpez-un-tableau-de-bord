@@ -1,15 +1,33 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { fetchSession } from "../services/callApi";
+import { fetchSession, fetchData, fetchPerformance } from "../services/callApi";
 
 const Navigation = () => {
   /*const [sessions, setSessions] = useState([]);
-  const fetchData = async () => {
+  const fetchSession = async () => {
     const result = await fetchSession();
     setSessions(result);
   };
+  const [data, setData] = useState(null);
+  const fetchData = async () => {
+    const result = await fetchData();
+    setData(result);
+  };
+  const [performance, setPerformance] = useState([]);
+  const [kind, setKind] = useState([]);
+  const fetchPerformance = async () => {
+    const result = await fetchPerformance();
+    setPerformance(result);
+    setKind(result);
+    //kind et setKind
+  };
+ 
+  fetchSession();
   fetchData();
-  console.log(sessions);*/ // à terminer à la prochaine session
+  fetchPerformance();
+
+  console.log(sessions); //à terminer à la prochaine session */
+
   return (
     <div className="nav">
       <div className="logo">

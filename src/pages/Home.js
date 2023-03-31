@@ -9,12 +9,14 @@ import Counter from "../components/Counter";
 import LineChart from "../components/LineChart";
 import SimpleRadartChart from "../components/SimpleRadartChart";
 import { BarChart } from "recharts";
+import SimpleBarChart from "../components/SimpleBarChart";
 
 const Home = () => {
   const [data, setData] = useState(null);
   const [sessions, setSessions] = useState([]);
   const [performance, setPerformance] = useState([]);
   const [kind, setKind] = useState([]);
+  const [activity, setActivity] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +33,8 @@ const Home = () => {
     };
     const fetchActivity = async () => {
       const result = await axios(`http://localhost:3000/user/12/activity`);
-      console.log(result.data.data.activity);
+      setActivity(result.data.data.sessions);
+      console.log(result.data.data.sessions);
     };
     const fetchPerformance = async () => {
       const result = await axios(`http://localhost:3000/user/12/performance`);
@@ -42,7 +45,7 @@ const Home = () => {
     fetchData();
     fetchSession();
     fetchPerformance();
-    //fetchActivity();
+    fetchActivity();
   }, []);
 
   return data ? (
@@ -61,6 +64,7 @@ const Home = () => {
           <div className="poids-ojectif-radar-kpi">
             <div>
               <ul className="poids">
+                <SimpleBarChart activity={activity} />
                 <li className="poids-activité">Activité quotidienne</li>
                 <li className="poids-poids">
                   <span>Poids (kg)</span>
@@ -77,14 +81,6 @@ const Home = () => {
               </div>
               <div className="radar">
                 <SimpleRadartChart performance={performance} kind={kind} />
-                <ul className="radar-ul-style">
-                  <li>Intensité</li>
-                  <li>Cardio</li>
-                  <li>Energie</li>
-                  <li>Endurance</li>
-                  <li>Force</li>
-                  <li>Vitesse</li>
-                </ul>
               </div>
               <Score className="score" score={data.todayScore} />
               <div className="score-info">
