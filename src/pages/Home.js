@@ -10,6 +10,12 @@ import LineChart from "../components/LineChart";
 import SimpleRadartChart from "../components/SimpleRadartChart";
 import { BarChart } from "recharts";
 import SimpleBarChart from "../components/SimpleBarChart";
+import {
+  getSession,
+  getActivity,
+  getPerformance,
+  getData,
+} from "../services/callApi";
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -20,27 +26,25 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:3000/user/12");
+      const result = await getData();
 
-      setData(result.data.data);
+      setData(result);
     };
     const fetchSession = async () => {
-      const result = await axios(
-        `http://localhost:3000/user/12/average-sessions`
-      );
+      const result = await getSession();
 
-      setSessions(result.data.data.sessions);
+      setSessions(result);
     };
     const fetchActivity = async () => {
-      const result = await axios(`http://localhost:3000/user/12/activity`);
-      setActivity(result.data.data.sessions);
-      console.log(result.data.data.sessions);
+      const result = await getActivity();
+      console.log(result);
+      setActivity(result);
     };
     const fetchPerformance = async () => {
-      const result = await axios(`http://localhost:3000/user/12/performance`);
+      const result = await getPerformance();
 
-      setPerformance(result.data.data.data);
-      setKind(result.data.data.kind);
+      setPerformance(result.data);
+      setKind(result.kind);
     };
     fetchData();
     fetchSession();
@@ -63,16 +67,10 @@ const Home = () => {
         <div className="content-flex">
           <div className="poids-ojectif-radar-kpi">
             <div>
-              <ul className="poids">
+              <h2 className="poids-activité">Activité quotidienne</h2>
+              <div className="poids">
                 <SimpleBarChart activity={activity} />
-                <li className="poids-activité">Activité quotidienne</li>
-                <li className="poids-poids">
-                  <span>Poids (kg)</span>
-                </li>
-                <li className="poids-calories">
-                  <span>Calories brûlées (kCal)</span>
-                </li>
-              </ul>
+              </div>
             </div>
             <div className="obj-rad-pki-flex">
               <div className="objectif">

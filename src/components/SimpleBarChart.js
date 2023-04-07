@@ -43,24 +43,29 @@ const SimpleBarChart = ({ activity }) => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" tickFormatter={formatXaxis} />
-        <YAxis />
+        <YAxis orientation="right" tickCount="3" />
         <Tooltip content={customTooltip} />
         <Legend
           align="right"
           verticalAlign="top"
           iconType="circle"
           height={50}
+          iconSize="8"
+          fill="#74798C"
+          formatter={(value) => (
+            <span className="value-simplebar">{value}</span>
+          )}
         />
         <Bar
           dataKey="kilogram"
           fill="#282D30"
-          barSize={7}
+          barSize={10}
           radius={[5, 5, 0, 0]}
         />
         <Bar
           dataKey="calories"
           fill="#E60000"
-          barSize={7}
+          barSize={10}
           radius={[5, 5, 0, 0]}
         />
       </BarChart>
