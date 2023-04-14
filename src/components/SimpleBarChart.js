@@ -16,8 +16,10 @@ const SimpleBarChart = ({ activity }) => {
     if (payload.length) {
       return (
         <div className="tooltip-activity">
-          <div>{payload[0].value + "kg"}</div>
-          <div>{payload[1].value + "Kcal"}</div>
+          <div className="tooltip-activity-kg">{payload[0].value + "kg"}</div>
+          <div className="tooltip-activity-kcal">
+            {payload[1].value + "Kcal"}
+          </div>
         </div>
       );
     }

@@ -229,3 +229,21 @@ g {
 .recharts-polar-grid-angle {
     display:none;
 }
+.tooltip-activity {
+    background-color: #E60000;
+    color: white;
+    width: 40px;
+    height: 65px;
+    font-weight: 500;
+    font-size: 7px;
+}
+.tooltip-activity-kg {
+    padding-left: 0.5rem;
+    padding-right: 1rem ;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.tooltip-activity-kcal {
+   padding-left: 0.5rem;
+   padding-right: 1rem ;
+}

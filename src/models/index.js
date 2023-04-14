@@ -17,18 +17,18 @@ class Performance {
   /**
    *
    * @param {object} data
+   * @param {number} value
+   * @param {number} kind
    */
 
   constructor(data) {
-    /**
-     * @property {number} value
-     */
     this.value = data.value;
-    /**
-     * @property {number} kind
-     */
     this.kind = data.kind;
   }
 }
-
-export { Activity };
+class User {
+  constructor(data) {
+    this.firstname = data.firstname;
+  }
+}
+export { Activity, Performance };
