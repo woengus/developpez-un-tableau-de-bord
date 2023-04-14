@@ -46,7 +46,7 @@ const SimpleBarChart = ({ activity }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" tickFormatter={formatXaxis} />
         <YAxis orientation="right" tickCount="3" />
-        <Tooltip content={customTooltip} />
+        <Tooltip content={customTooltip} wrapperStyle={{ outline: "none" }} />
         <Legend
           align="right"
           verticalAlign="top"

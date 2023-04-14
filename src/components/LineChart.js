@@ -39,7 +39,7 @@ export default function App(props) {
     >
       <CartesianGrid strokeDasharray="0 3" />
       <XAxis dataKey="name" stroke="#ffffff" />
-      <Tooltip content={mapSession} />
+      <Tooltip content={mapSession} wrapperStyle={{ outline: "none" }} />
       <Line
         type="monotone"
         dataKey="average"
