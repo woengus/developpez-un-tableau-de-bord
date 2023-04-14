@@ -1,8 +1,8 @@
 import React from "react";
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts";
-
+import PropType from "prop-types";
 //transform value in days of the week
-export default function App(props) {
+const Session = ({ sessions }) => {
   const days = {
     1: "L",
     2: "M",
@@ -12,7 +12,7 @@ export default function App(props) {
     6: "S",
     7: "D",
   };
-  const sessions = props.sessions.map((session) => {
+  const data = sessions.map((session) => {
     return {
       name: days[session.day],
       average: session.sessionLength,
@@ -20,6 +20,11 @@ export default function App(props) {
   });
 
   //tooltip
+  /**
+   *
+   * @param {object} payload
+   * @returns {JSX}
+   */
   const mapSession = ({ payload }) => {
     if (payload.length) {
       return <div className="tooltip">{payload[0].value} min</div>;
@@ -29,7 +34,7 @@ export default function App(props) {
     <LineChart
       width={300}
       height={200}
-      data={sessions}
+      data={data}
       margin={{
         top: 5,
         right: 30,
@@ -48,4 +53,8 @@ export default function App(props) {
       />
     </LineChart>
   );
-}
+};
+Session.propType = {
+  sessions: PropType.array,
+};
+export default Session;

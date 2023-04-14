@@ -1,4 +1,5 @@
 import React from "react";
+import PropType from "prop-types";
 import {
   Radar,
   RadarChart,
@@ -16,16 +17,14 @@ const legend = {
   6: "Intensité",
 };
 
-const SimpleRadarChart = ({ performance, kind }) => {
-  console.log(kind);
-  console.log(performance);
+const SimpleRadarChart = ({ performance }) => {
   const data = performance.map((perf) => {
     return {
       kind: legend[perf.kind],
       value: perf.value,
     };
   });
-  console.log(data);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
@@ -42,5 +41,8 @@ const SimpleRadarChart = ({ performance, kind }) => {
       </RadarChart>
     </ResponsiveContainer>
   );
+};
+SimpleRadarChart.propsType = {
+  performance: PropType.array,
 };
 export default SimpleRadarChart;

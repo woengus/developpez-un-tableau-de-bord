@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Calories from "../assets/calories-icon.png";
 import Proteines from "../assets/prot-icon.png";
 import Glucides from "../assets/glucides-icon.png";
@@ -8,7 +7,6 @@ import Score from "../components/Score";
 import Counter from "../components/Counter";
 import LineChart from "../components/LineChart";
 import SimpleRadartChart from "../components/SimpleRadartChart";
-import { BarChart } from "recharts";
 import SimpleBarChart from "../components/SimpleBarChart";
 import {
   getSession,
@@ -21,7 +19,6 @@ const Home = () => {
   const [data, setData] = useState(null);
   const [sessions, setSessions] = useState([]);
   const [performance, setPerformance] = useState([]);
-  const [kind, setKind] = useState([]);
   const [activity, setActivity] = useState([]);
 
   useEffect(() => {
@@ -37,14 +34,13 @@ const Home = () => {
     };
     const fetchActivity = async () => {
       const result = await getActivity();
-      console.log(result);
+
       setActivity(result);
     };
     const fetchPerformance = async () => {
       const result = await getPerformance();
 
       setPerformance(result.data);
-      setKind(result.kind);
     };
     fetchData();
     fetchSession();
@@ -78,7 +74,7 @@ const Home = () => {
                 <LineChart sessions={sessions} />
               </div>
               <div className="radar">
-                <SimpleRadartChart performance={performance} kind={kind} />
+                <SimpleRadartChart performance={performance} />
               </div>
               <Score className="score" score={data.todayScore} />
               <div className="score-info">

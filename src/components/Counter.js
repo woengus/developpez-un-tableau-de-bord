@@ -1,4 +1,5 @@
 import React from "react";
+import PropType from "prop-types";
 
 const Counter = (props) => {
   return (
@@ -14,4 +15,11 @@ const Counter = (props) => {
   );
 };
 
+Counter.propType = {
+  src: PropType.string,
+  alt: PropType.string,
+  class: PropType.string,
+  name: PropType.string,
+  weight: PropType.number,
+};
 export default Counter;

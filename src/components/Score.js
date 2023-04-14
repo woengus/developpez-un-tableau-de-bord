@@ -1,5 +1,6 @@
 import React from "react";
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
+import PropType from "prop-types";
 
 const COLORS = ["#E60000", "transparent"];
 const Score = ({ score }) => {
@@ -37,5 +38,7 @@ const Score = ({ score }) => {
     </div>
   );
 };
-
+Score.propType = {
+  score: PropType.number,
+};
 export default Score;

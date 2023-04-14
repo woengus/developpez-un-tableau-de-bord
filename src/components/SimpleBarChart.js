@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropType from "prop-types";
 import {
   BarChart,
   Bar,
@@ -12,6 +13,11 @@ import {
 } from "recharts";
 
 const SimpleBarChart = ({ activity }) => {
+  /**
+   *
+   * @param {object} payload
+   * @returns {JSX}
+   */
   const customTooltip = ({ payload }) => {
     if (payload.length) {
       return (
@@ -24,6 +30,11 @@ const SimpleBarChart = ({ activity }) => {
       );
     }
   };
+  /**
+   *
+   * @param {array} value
+   * @returns {number}
+   */
   const formatXaxis = (value) => {
     const lastNum = value[value.length - 1];
 
@@ -73,5 +84,8 @@ const SimpleBarChart = ({ activity }) => {
       </BarChart>
     </ResponsiveContainer>
   );
+};
+SimpleBarChart.propType = {
+  activity: PropType.array,
 };
 export default SimpleBarChart;

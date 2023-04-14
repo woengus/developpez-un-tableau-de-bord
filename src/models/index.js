@@ -1,3 +1,4 @@
+//@ts-check
 class Activity {
   /**
    *
@@ -17,8 +18,8 @@ class Performance {
   /**
    *
    * @param {object} data
-   * @param {number} value
-   * @param {number} kind
+   * @param {number} data.value
+   * @param {number} data.kind
    */
 
   constructor(data) {
@@ -26,9 +27,30 @@ class Performance {
     this.kind = data.kind;
   }
 }
-class User {
+class Session {
+  /**
+   *
+   * @param {object} data
+   * @param {number} data.day
+   * @param {number} data.sessionLength
+   */
   constructor(data) {
-    this.firstname = data.firstname;
+    this.day = data.day;
+    this.sessionLength = data.sessionLength;
   }
 }
-export { Activity, Performance };
+class User {
+  /**
+   *
+   * @param {object} data
+   * @param {object} data.userInfos
+   * @param {number} data.todayScore
+   * @param {object} data.keyData
+   */
+  constructor(data) {
+    this.userInfos = data.userInfos;
+    this.todayScore = data.todayScore;
+    this.keyData = data.keyData;
+  }
+}
+export { Activity, Performance, Session, User };
