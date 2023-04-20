@@ -31,7 +31,7 @@ const Home = () => {
     };
     const fetchSession = async () => {
       const result = await getSession(id);
-      console.log(result);
+
       setSessions(result);
     };
     const fetchActivity = async () => {

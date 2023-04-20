@@ -12,12 +12,14 @@ const Session = ({ sessions }) => {
     6: "S",
     7: "D",
   };
+
   const data = sessions.map((session) => {
     return {
       name: days[session.day],
       average: session.sessionLength,
     };
   });
+  console.log(data);
 
   //tooltip
   /**
@@ -37,8 +39,8 @@ const Session = ({ sessions }) => {
       data={data}
       margin={{
         top: 5,
-        right: 30,
-        left: -10,
+        right: 40,
+        left: 30,
         bottom: 0,
       }}
     >

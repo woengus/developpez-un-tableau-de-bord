@@ -58,7 +58,7 @@ const getPerformance = async (id) => {
 const getData = async (id) => {
   try {
     const result = await axios(`http://localhost:3000/user/${id}`);
-    console.log(result.data.data);
+
     return new User(result.data.data);
   } catch (error) {
     console.log(error);
