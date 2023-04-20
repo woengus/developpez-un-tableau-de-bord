@@ -34,7 +34,7 @@ const SimpleRadarChart = ({ performance }) => {
         <Radar
           name="Mike"
           dataKey="value"
-          stroke="#FFFFFF"
+          stroke="transparent"
           fill="red"
           fillOpacity={0.6}
         />

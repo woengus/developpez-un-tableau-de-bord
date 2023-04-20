@@ -43,7 +43,7 @@ const Session = ({ sessions }) => {
       }}
     >
       <CartesianGrid strokeDasharray="0 3" />
-      <XAxis dataKey="name" stroke="#ffffff" />
+      <XAxis dataKey="name" stroke="gray" />
       <Tooltip content={mapSession} wrapperStyle={{ outline: "none" }} />
       <Line
         type="monotone"
