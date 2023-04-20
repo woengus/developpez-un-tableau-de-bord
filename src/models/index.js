@@ -44,12 +44,14 @@ class User {
    *
    * @param {object} data
    * @param {object} data.userInfos
-   * @param {number} data.todayScore
+   * @param {number | undefined} data.todayScore
+   * @param {number | undefined} data.score
    * @param {object} data.keyData
    */
   constructor(data) {
     this.userInfos = data.userInfos;
-    this.todayScore = data.todayScore;
+    this.todayScore = data.todayScore ? data.todayScore : data.score;
+
     this.keyData = data.keyData;
   }
 }

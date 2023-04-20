@@ -5,6 +5,9 @@ top: 13%;
 font-weight: 500;
 font-size: 48px;
 color:#000000;
+@media screen and (max-width: 1460px) {
+    font-size: 32px;
+  }
 
 }
 
@@ -18,7 +21,10 @@ color:#000000;
     font-size: 48px;
     @media screen and (max-width: 1460px) {
         padding-left:1rem;
-      }
+        font-size: 32px;
+        left: 24%;
+        top: 16%;
+    }
 }
 .congratulations {
     font-weight: 400;
@@ -26,6 +32,9 @@ color:#000000;
     position: absolute;
     left: 15%;
     top: 21%;
+    @media screen and (max-width: 1460px) {
+        margin-bottom:0;
+    }
 }
 .content-flex {
     display: flex;
@@ -33,6 +42,9 @@ color:#000000;
     margin-left:10rem;
     margin-top:12rem;
     justify-content: space-around;
+    @media screen and (max-width: 1460px) {
+        margin-top:8rem;
+    }
     
 }
 .calories-proteines-glucides-lipides { 
@@ -78,8 +90,6 @@ color:#000000;
 
 .objectif, .radar, .kpi {
     width: 32%;
-    height: 30vh;
-  
 }
 .obj-rad-pki-flex {
     display: flex;
@@ -149,12 +159,15 @@ color:#000000;
 }
 .kpi{
     width: 30%;
-    height: 260px;
+    
 }
 .poids {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    @media screen and (max-width: 1460px) {
+       width: 700px;
+    }
 }
 
 .poids-activité {
@@ -202,8 +215,14 @@ color:#000000;
     list-style: none;
     color:#FFFFFF;
     font-weight: 500;
-    font-size:12px
+    font-size:10.5px; 
     
+    @media screen and (max-width: 1460px) {
+        font-size:6.7px; 
+        font-weight: 400;
+        padding-right:0.6rem;
+        padding-left:0.6rem;
+    }
 }
 .radar-ul-style {
     list-style: none;
@@ -217,6 +236,10 @@ color:#000000;
         position: relative;
         top:10px;
         left:-275px;
+        @media screen and (max-width: 1460px) {
+        left:-70px;
+        top:30px;
+        }
     }
     .score-objectif {
         font-weight: 700;
@@ -225,6 +248,9 @@ color:#000000;
         top:10px;
         left:-200px;
         color:#282D30;
+        @media screen and (max-width: 1460px) {
+            left:-70px;
+            }
     }
     span {
         position: relative;
@@ -233,6 +259,9 @@ color:#000000;
         font-size: 16px;
         color:#74798C;
         font-weight: 500;
+        @media screen and (max-width: 1460px) {
+            left:-70px;
+            }
     }
 }
 //style linechart
@@ -290,4 +319,9 @@ g {
     @media screen and (max-width: 1460px) {
         margin-right:2rem;
     }
+}
+.user {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
 }

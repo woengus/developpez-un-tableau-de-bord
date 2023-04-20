@@ -6,10 +6,10 @@ import { Activity, Performance, User, Session } from "../models";
  *
  * @returns {Promise}
  */
-const getSession = async () => {
+const getSession = async (id) => {
   try {
     const result = await axios(
-      `http://localhost:3000/user/12/average-sessions`
+      `http://localhost:3000/user/${id}/average-sessions`
     );
 
     return result.data.data.sessions.map((session) => new Session(session));
@@ -22,9 +22,9 @@ const getSession = async () => {
  *
  * @returns {Promise}
  */
-const getActivity = async () => {
+const getActivity = async (id) => {
   try {
-    const result = await axios(`http://localhost:3000/user/12/activity`);
+    const result = await axios(`http://localhost:3000/user/${id}/activity`);
 
     return result.data.data.sessions.map((activity) => new Activity(activity));
   } catch (error) {
@@ -36,9 +36,9 @@ const getActivity = async () => {
  *
  * @returns {Promise}
  */
-const getPerformance = async () => {
+const getPerformance = async (id) => {
   try {
-    const result = await axios(`http://localhost:3000/user/12/performance`);
+    const result = await axios(`http://localhost:3000/user/${id}/performance`);
 
     return {
       kind: result.data.data.kind,
@@ -55,9 +55,9 @@ const getPerformance = async () => {
  *
  * @returns {Promise}
  */
-const getData = async () => {
+const getData = async (id) => {
   try {
-    const result = await axios("http://localhost:3000/user/12");
+    const result = await axios(`http://localhost:3000/user/${id}`);
     console.log(result.data.data);
     return new User(result.data.data);
   } catch (error) {

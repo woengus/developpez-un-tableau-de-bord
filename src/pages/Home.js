@@ -14,31 +14,33 @@ import {
   getPerformance,
   getData,
 } from "../services/callApi";
+import { useParams } from "react-router-dom";
 
 const Home = () => {
   const [data, setData] = useState(null);
   const [sessions, setSessions] = useState([]);
   const [performance, setPerformance] = useState([]);
   const [activity, setActivity] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getData();
+      const result = await getData(id);
 
       setData(result);
     };
     const fetchSession = async () => {
-      const result = await getSession();
+      const result = await getSession(id);
 
       setSessions(result);
     };
     const fetchActivity = async () => {
-      const result = await getActivity();
+      const result = await getActivity(id);
 
       setActivity(result);
     };
     const fetchPerformance = async () => {
-      const result = await getPerformance();
+      const result = await getPerformance(id);
 
       setPerformance(result.data);
     };
