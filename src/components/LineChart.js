@@ -19,7 +19,7 @@ const Session = ({ sessions }) => {
       average: session.sessionLength,
     };
   });
-  console.log(data);
+  //console.log(data);
 
   //tooltip
   /**
